@@ -8,8 +8,10 @@
     <StackLayout VerticalOptions="Center" Spacing="20">
         <Label Text="Try to follow the patter!" 
            HorizontalOptions="Center"
+               TextColor="#8D81AA"
+               x:Name="label"
            VerticalOptions="CenterAndExpand" />
-        <Grid  HeightRequest="250" Margin="50,0">
+        <Grid HorizontalOptions="Center" WidthRequest="250" HeightRequest="250">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -21,15 +23,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="1" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="2" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="0" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="one" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="two" Clicked="ButtonClicked" Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
+
+            <Button x:Name="three" Clicked="ButtonClicked" Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="four" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="five" Clicked="ButtonClicked"  Grid.Column="1" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="six" Clicked="ButtonClicked"  Grid.Column="2" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="seven" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="eight" Clicked="ButtonClicked" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="nine" Clicked="ButtonClicked" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
 
 
         </Grid>
