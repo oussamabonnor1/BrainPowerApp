@@ -16,12 +16,6 @@ namespace BrainPowerApp
         {
             InitializeComponent();
             patternIndexes = new List<int>();
-            //Task.Run(async delegate
-            //{
-            //    await Task.Delay(TimeSpan.FromSeconds(1), new System.Threading.CancellationToken());
-
-            //});
-            MakingPattern();
         }
 
         public void SelectingButton(int buttonIndex, Color color)
@@ -63,18 +57,10 @@ namespace BrainPowerApp
             patternIndexes.Add(new Random().Next(9));
             for (int i = 0; i < patternIndexes.Count; i++)
             {
-                Console.Write("hey");
-                label.Text = "" + i;
                 SelectingButton(patternIndexes[i], ConvertHexaToColor(colors[new Random().Next(colors.Length)]));
                 //waiting for a bit here
                 await Task.Delay(1000);
                 SelectingButton(patternIndexes[i], ConvertHexaToColor(originalButtonColor));
-
-                times++;
-                if (times < 3)
-                {
-                   await MakingPattern();
-                }
             }
         }
 
@@ -88,6 +74,11 @@ namespace BrainPowerApp
         public void ButtonClicked(Object sender, EventArgs e)
         {
 
+        }
+
+        private void StartGameButtonClicked(object sender, EventArgs e)
+        {
+            MakingPattern();
         }
     }
 }
