@@ -6,12 +6,10 @@
              BackgroundColor="#5C4887">
 
     <StackLayout VerticalOptions="Center" Spacing="20">
-        <Label Text="Try to follow the patter!" 
-           HorizontalOptions="Center"
-               TextColor="#8D81AA"
-               x:Name="label"
-               FontSize="18"
-           VerticalOptions="CenterAndExpand" />
+        <ProgressBar 
+                     ProgressColor="#80CBC4"
+                     x:Name="progressBar"/>
+        
         <Grid HorizontalOptions="Center" WidthRequest="150" HeightRequest="150">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -34,11 +32,18 @@
             <Button x:Name="eight" Clicked="ButtonClicked" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
             <Button x:Name="nine" Clicked="ButtonClicked" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
         </Grid>
+        <Label Text="Click start to play sequence" 
+           HorizontalOptions="Center"
+               TextColor="#fff"
+               x:Name="label"
+               FontSize="18"
+           VerticalOptions="Center" />
         <Button 
             x:Name="startGameButton" 
             WidthRequest="80" 
             HorizontalOptions="Center" 
             BackgroundColor="#5A595B" 
+            TextColor="#fff"
             Text="Start"
             Clicked="StartGameButtonClicked"/>
     </StackLayout>

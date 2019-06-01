@@ -8,7 +8,7 @@ namespace BrainPowerApp
     public partial class MainPage : ContentPage
     {
         string originalButtonColor = "#8D81AA";
-        string[] colors = { "#59DAB4", "#E74C70", "#F188E8", "#5AB1E6" };
+        string[] colors = { "#59DAB4", "#E74C70", "#F188E8", "#5AB1E6", "#F79174","#F0B93A", "#92D1EC" };
         List<int> patternIndexes;
         List<Color> patternColors;
         bool patternShowing;
@@ -17,10 +17,7 @@ namespace BrainPowerApp
         public MainPage()
         {
             InitializeComponent();
-            patternIndexes = new List<int>();
-            patternColors = new List<Color>();
-            patternShowing = false;
-            currentPatternIndex = 0;
+            InitializingGameParameters();
         }
 
         public void SelectingButton(int buttonIndex, Color color)
@@ -70,6 +67,7 @@ namespace BrainPowerApp
                 SelectingButton(patternIndexes[i], ConvertHexaToColor(originalButtonColor));
                 await Task.Delay(250);
             }
+            label.Text = "Try to replay the pattern!";
             patternShowing = false;
         }
 
@@ -122,36 +120,59 @@ namespace BrainPowerApp
             }
         }
 
-        async void CheckingPattern(int index)
+        async Task CheckingPattern(int index)
         {
-            Console.WriteLine(index);
-            if (index == patternIndexes[currentPatternIndex])
+            if (!patternShowing)
             {
-                //if it s correct, we need to light up the button
-                SelectingButton(patternIndexes[currentPatternIndex], patternColors[currentPatternIndex]);
-                //waiting for a bit here
-                await Task.Delay(500);
-                SelectingButton(patternIndexes[currentPatternIndex], ConvertHexaToColor(originalButtonColor));
-                await Task.Delay(250);
-                //going to the next iteration or waiting..
-                label.Text = "Correct, " + (currentPatternIndex + 1);
-                currentPatternIndex++;
-                if (currentPatternIndex >= patternIndexes.Count)
+                if (index == patternIndexes[currentPatternIndex])
                 {
-                    currentPatternIndex = 0;
-                    label.Text = "Remember the sequence!";
-                    await MakingPattern();
+                    label.Text = "Steps left: " + (patternIndexes.Count - currentPatternIndex - 1);
+                    //if it s correct, we need to light up the button and set the progress bar
+                    SelectingButton(patternIndexes[currentPatternIndex], patternColors[currentPatternIndex]);
+                    progressBar.Progress = ((float)(currentPatternIndex + 1) / patternIndexes.Count);
+                    //waiting for a bit here
+                    await Task.Delay(150);
+                    SelectingButton(patternIndexes[currentPatternIndex], ConvertHexaToColor(originalButtonColor));
+                    await Task.Delay(150);
+                    //going to the next iteration or waiting..
+                    currentPatternIndex++;
+                    if (currentPatternIndex >= patternIndexes.Count)
+                    {
+                        label.Text = "Great Job!";
+                        await Task.Delay(1000); //waiting for player to realize this itteration is over
+                        currentPatternIndex = 0;
+                        progressBar.Progress = 0;
+                        label.Text = "Remember the sequence!";
+                        await MakingPattern();
+                    }
+                }
+                else
+                {
+                    progressBar.Progress = 1;
+                    progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
+                    label.Text = "Wrong! Press start to try again...";
+                    InitializingGameParameters();
                 }
             }
-            else label.Text = "Wrong!";
         }
 
         private async void StartGameButtonClicked(object sender, EventArgs e)
         {
             if (!patternShowing)
             {
+                label.Text = "Remember the sequence!";
+                progressBar.Progress = 0;
+                progressBar.ProgressColor = ConvertHexaToColor("#80CBC4"); //making progress color is green
                 await MakingPattern();
             }
+        }
+
+        void InitializingGameParameters()
+        {
+            patternIndexes = new List<int>();
+            patternColors = new List<Color>();
+            patternShowing = false;
+            currentPatternIndex = 0;
         }
     }
 }
