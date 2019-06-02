@@ -6,11 +6,28 @@
              BackgroundColor="#5C4887">
 
     <StackLayout VerticalOptions="Center" Spacing="20">
+
         <ProgressBar 
                      ProgressColor="#80CBC4"
                      x:Name="progressBar"/>
+
+        <Button 
+            x:Name="startGameButton" 
+            WidthRequest="100" 
+            HorizontalOptions="Center" 
+            BackgroundColor="#5A595B" 
+            TextColor="#fff"
+            Text="Start"
+            Clicked="StartGameButtonClicked"/>
         
-        <Grid HorizontalOptions="Center" WidthRequest="150" HeightRequest="150">
+        <Label Text="Click start to play sequence" 
+           HorizontalOptions="Center"
+               TextColor="#fff"
+               x:Name="label"
+               FontSize="18"
+           VerticalOptions="Center" />
+
+        <Grid x:Name="gridView" HorizontalOptions="Fill" VerticalOptions="Center" Margin="50,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -22,7 +39,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="one" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="one"  Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
             <Button x:Name="two" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
             <Button x:Name="three" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
             <Button x:Name="four" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
@@ -32,20 +49,6 @@
             <Button x:Name="eight" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
             <Button x:Name="nine" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
         </Grid>
-        <Label Text="Click start to play sequence" 
-           HorizontalOptions="Center"
-               TextColor="#fff"
-               x:Name="label"
-               FontSize="18"
-           VerticalOptions="Center" />
-        <Button 
-            x:Name="startGameButton" 
-            WidthRequest="80" 
-            HorizontalOptions="Center" 
-            BackgroundColor="#5A595B" 
-            TextColor="#fff"
-            Text="Start"
-            Clicked="StartGameButtonClicked"/>
     </StackLayout>
 
 </ContentPage>

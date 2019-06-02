@@ -17,6 +17,9 @@ namespace BrainPowerApp
         public MainPage()
         {
             InitializeComponent();
+            startGameButton.IsVisible = false;
+            gridView.SizeChanged += (object sender, EventArgs e) => { gridView.HeightRequest = gridView.Width; };
+            startGameButton.IsVisible = true;
             InitializingGameParameters();
         }
 
@@ -174,8 +177,8 @@ namespace BrainPowerApp
 
         private void ButtonReleased(object sender, EventArgs e)
         {
-
             ((Button) sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
         }
-    }
+        
+}
 }
