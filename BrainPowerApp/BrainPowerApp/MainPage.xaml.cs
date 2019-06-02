@@ -78,45 +78,44 @@ namespace BrainPowerApp
             return (Color)converter.ConvertFromInvariantString(hexaColor);
         }
 
-        public void ButtonClicked(Object sender, EventArgs e)
+        public async void ButtonPressed(Object sender, EventArgs e)
         {
             var name = ((Button)sender).Id;
-            Console.WriteLine(name);
             if (name == one.Id)
             {
-                CheckingPattern(0);
+                await CheckingPattern(0);
             }
             else if (name == two.Id)
             {
-                CheckingPattern(1);
+                await CheckingPattern(1);
             }
             else if (name == three.Id)
             {
-                CheckingPattern(2);
+                await CheckingPattern(2);
             }
             else if (name == four.Id)
             {
-                CheckingPattern(3);
+                await CheckingPattern(3);
             }
             else if (name == five.Id)
             {
-                CheckingPattern(4);
+                await CheckingPattern(4);
             }
             else if (name == six.Id)
             {
-                CheckingPattern(5);
+                await CheckingPattern(5);
             }
             else if (name == seven.Id)
             {
-                CheckingPattern(6);
+                await CheckingPattern(6);
             }
             else if (name == eight.Id)
             {
-                CheckingPattern(7);
+                await CheckingPattern(7);
             }
             else if (name == nine.Id)
             {
-                CheckingPattern(8);
+                await CheckingPattern(8);
             }
         }
 
@@ -130,10 +129,6 @@ namespace BrainPowerApp
                     //if it s correct, we need to light up the button and set the progress bar
                     SelectingButton(patternIndexes[currentPatternIndex], patternColors[currentPatternIndex]);
                     progressBar.Progress = ((float)(currentPatternIndex + 1) / patternIndexes.Count);
-                    //waiting for a bit here
-                    await Task.Delay(150);
-                    SelectingButton(patternIndexes[currentPatternIndex], ConvertHexaToColor(originalButtonColor));
-                    await Task.Delay(150);
                     //going to the next iteration or waiting..
                     currentPatternIndex++;
                     if (currentPatternIndex >= patternIndexes.Count)
@@ -148,6 +143,7 @@ namespace BrainPowerApp
                 }
                 else
                 {
+                    startGameButton.IsVisible = true;
                     progressBar.Progress = 1;
                     progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
                     label.Text = "Wrong! Press start to try again...";
@@ -160,6 +156,7 @@ namespace BrainPowerApp
         {
             if (!patternShowing)
             {
+                startGameButton.IsVisible = false;
                 label.Text = "Remember the sequence!";
                 progressBar.Progress = 0;
                 progressBar.ProgressColor = ConvertHexaToColor("#80CBC4"); //making progress color is green
@@ -173,6 +170,12 @@ namespace BrainPowerApp
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
+        }
+
+        private void ButtonReleased(object sender, EventArgs e)
+        {
+
+            ((Button) sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
         }
     }
 }

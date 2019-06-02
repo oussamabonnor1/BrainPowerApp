@@ -22,15 +22,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="one" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="two" Clicked="ButtonClicked" Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="three" Clicked="ButtonClicked" Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="four" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="five" Clicked="ButtonClicked"  Grid.Column="1" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="six" Clicked="ButtonClicked"  Grid.Column="2" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="seven" Clicked="ButtonClicked" Grid.Column="0" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button x:Name="eight" Clicked="ButtonClicked" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button x:Name="nine" Clicked="ButtonClicked" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="one" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="two" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="three" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
+            <Button x:Name="four" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="five" Pressed="ButtonPressed" Released="ButtonReleased"  Grid.Column="1" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="six" Pressed="ButtonPressed" Released="ButtonReleased"  Grid.Column="2" Grid.Row="1" BackgroundColor="#8D81AA"/>
+            <Button x:Name="seven" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="eight" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button x:Name="nine" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
         </Grid>
         <Label Text="Click start to play sequence" 
            HorizontalOptions="Center"
