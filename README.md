@@ -3,7 +3,7 @@
 ![GitHub license](https://img.shields.io/github/license/oussamabonnor1/BrainPowerApp.svg)
 ![Jetlight studio](https://img.shields.io/badge/Made%20by-Jetlight%20studio-blue.svg?color=082544)
 
-A visual memory training game, fun mobile for both Android and IOS.
+A visual memory training game, a mobile game made with Xamarin for both Android and IOS .
 
 ## Screenshot:
 <img src="Screenshots/Sc.jpg" width = "250"/> <img src="Screenshots/Sc 2.jpg" width = "250"/>                                              
