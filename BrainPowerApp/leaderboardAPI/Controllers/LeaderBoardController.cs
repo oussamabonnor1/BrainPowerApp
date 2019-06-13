@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using leaderboardAPI.Models.Player;
+using leaderboardAPI.Models;
 
 namespace leaderboardAPI.Controllers
 {
@@ -11,8 +11,9 @@ namespace leaderboardAPI.Controllers
     [ApiController]
     public class LeaderBoardController : ControllerBase
     {
-        List<Player> players;
-        public LeaderBoardController(){
+        PlayerContext context;
+        public LeaderBoardController(PlayerContext context){
+            this.context = context;
         }
 
         // GET api/leaderboard
