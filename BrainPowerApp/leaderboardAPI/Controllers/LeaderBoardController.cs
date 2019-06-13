@@ -35,19 +35,35 @@ namespace leaderboardAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> Get(int id)
         {
-            return await context.players.FindAsync(id);
+            Player temp = await context.players.FindAsync(id);
+            if(temp == null)
+            {
+                return NotFound();
+            }
+            return temp;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Player>> Post([FromBody] Player player)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            context.players.Add(player);
+            await context.SaveChangesAsync();
+            return CreatedAtAction("get", new {player.id});
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Player player)
         {
+            if(id == player.id)
+            {
+                
+            }
         }
 
         // DELETE api/values/5
