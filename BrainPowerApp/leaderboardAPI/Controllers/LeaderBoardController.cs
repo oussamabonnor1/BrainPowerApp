@@ -36,7 +36,7 @@ namespace leaderboardAPI.Controllers
         public async Task<ActionResult<Player>> Get(int id)
         {
             Player temp = await context.players.FindAsync(id);
-            if(temp == null)
+            if (temp == null)
             {
                 return NotFound();
             }
@@ -53,23 +53,34 @@ namespace leaderboardAPI.Controllers
             }
             context.players.Add(player);
             await context.SaveChangesAsync();
-            return CreatedAtAction("get", new {player.id});
+            return CreatedAtAction("get", player);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Player player)
+        public async Task<ActionResult<Player>> Put(int id, [FromBody] Player player)
         {
-            if(id == player.id)
+            if (id != player.id)
             {
-                
+                return BadRequest("Ids dont match");
             }
+            context.Entry(player).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return Ok(player);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Player>> Delete(int id)
         {
+            Player temp = await context.players.FindAsync(id);
+            if (temp == null)
+            {
+                return NotFound("Player not found");
+            }
+            context.players.Remove(temp);
+            await context.SaveChangesAsync();
+            return Ok(temp);
         }
     }
 }
