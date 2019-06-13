@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using leaderboardAPI.Models;
 
 namespace leaderboardAPI
@@ -28,7 +24,7 @@ namespace leaderboardAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PlayerContext>(opt => {
-                opt.UseInMemoryDatabase("LeaderBoard");
+                opt.UseSqlite("Data source=LeaderBoard.db");
                 opt.EnableSensitiveDataLogging(true);
             });
             services.AddMvc();
@@ -40,7 +36,7 @@ namespace leaderboardAPI
             if(env.IsDevelopment()){
                 app.UseDeveloperExceptionPage();
             }
-            //app.UseStaticFiles();
+            app.UseStaticFiles();
             app.UseMvc();
 
             app.Run(async (context) => {
