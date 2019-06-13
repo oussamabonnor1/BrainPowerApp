@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using leaderboardAPI.Models.Player;
 
 namespace leaderboardAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class LeaderBoardController : ControllerBase
     {
-        // GET api/values
+        List<Player> players;
+        public LeaderBoardController(){
+        }
+
+        // GET api/leaderboard
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
