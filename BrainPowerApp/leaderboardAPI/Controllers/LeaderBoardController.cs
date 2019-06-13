@@ -1,9 +1,9 @@
-﻿using System;
+﻿using leaderboardAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using leaderboardAPI.Models;
 
 namespace leaderboardAPI.Controllers
 {
@@ -12,22 +12,30 @@ namespace leaderboardAPI.Controllers
     public class LeaderBoardController : ControllerBase
     {
         PlayerContext context;
-        public LeaderBoardController(PlayerContext context){
-            this.context = context;
+        public LeaderBoardController(PlayerContext c)
+        {
+            context = c;
+            if (context.players.Count() == 0)
+            {
+                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019" });
+                context.players.Add(new Player { name = "name2", score = 10, recordDate = "13/06/2019" });
+                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019" });
+            }
+            context.SaveChanges();
         }
 
         // GET api/leaderboard
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<ActionResult<IEnumerable<Player>>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await context.players.ToListAsync();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<Player>> Get(int id)
         {
-            return "value";
+            return await context.players.FindAsync(id);
         }
 
         // POST api/values

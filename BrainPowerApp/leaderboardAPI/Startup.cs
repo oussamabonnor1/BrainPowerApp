@@ -29,6 +29,7 @@ namespace leaderboardAPI
         {
             services.AddDbContext<PlayerContext>(opt => {
                 opt.UseInMemoryDatabase("LeaderBoard");
+                opt.EnableSensitiveDataLogging(true);
             });
             services.AddMvc();
         }
@@ -39,7 +40,7 @@ namespace leaderboardAPI
             if(env.IsDevelopment()){
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
             app.UseMvc();
 
             app.Run(async (context) => {
