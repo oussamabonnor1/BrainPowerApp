@@ -1,70 +1,130 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:BrainPowerApp"
-             x:Class="BrainPowerApp.MainPage"
-             BackgroundColor="#5C4887">
+<ContentPage
+    x:Class="BrainPowerApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BrainPowerApp"
+    BackgroundColor="#5C4887">
 
-    <StackLayout VerticalOptions="Center" Spacing="20">
+    <StackLayout Spacing="20" VerticalOptions="Center">
 
         <StackLayout Orientation="Horizontal">
 
-            <Label x:Name="scoreLabel"
-            Text="Score: 00"
-               FontSize="18"
-               TextColor="#fff"
-                   HorizontalOptions="StartAndExpand"
-               Margin="20,0,0,0"/>
+            <Label
+                x:Name="scoreLabel"
+                Margin="20,0,0,0"
+                FontSize="18"
+                HorizontalOptions="StartAndExpand"
+                Text="Score: 00"
+                TextColor="#fff" />
 
-            <Label x:Name="nameLabel"
-            Text="Player: Smith"
-               FontSize="18"
-               TextColor="#fff"
-               HorizontalOptions="EndAndExpand"
-               Margin="0,0,20,0"/>
+            <Label
+                x:Name="nameLabel"
+                Margin="0,0,20,0"
+                FontSize="18"
+                HorizontalOptions="EndAndExpand"
+                Text="Player: Smith"
+                TextColor="#fff" />
         </StackLayout>
-        
-        <ProgressBar 
-                     ProgressColor="#80CBC4"
-                     x:Name="progressBar"/>
-        
-        <Button 
-            x:Name="startGameButton" 
-            WidthRequest="100" 
-            HorizontalOptions="Center" 
-            BackgroundColor="#5A595B" 
-            TextColor="#fff"
+
+        <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
+
+        <Button
+            x:Name="startGameButton"
+            BackgroundColor="#5A595B"
+            Clicked="StartGameButtonClicked"
+            HorizontalOptions="Center"
             Text="Start"
-            Clicked="StartGameButtonClicked"/>
+            TextColor="#fff"
+            WidthRequest="100" />
 
-        <Label Text="Click start to play sequence" 
-           HorizontalOptions="Center"
-               TextColor="#fff"
-               x:Name="label"
-               FontSize="18"
-           VerticalOptions="Center" />
+        <Label
+            x:Name="label"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="Click start to play sequence"
+            TextColor="#fff"
+            VerticalOptions="Center" />
 
-        <Grid x:Name="gridView" HorizontalOptions="Fill" VerticalOptions="Center" Margin="50,10">
+        <Grid
+            x:Name="gridView"
+            Margin="50,10"
+            HorizontalOptions="Fill"
+            VerticalOptions="Center">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="one"  Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="two" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="three" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="0" BackgroundColor="#8D81AA"/>
-            <Button x:Name="four" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="five" Pressed="ButtonPressed" Released="ButtonReleased"  Grid.Column="1" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="six" Pressed="ButtonPressed" Released="ButtonReleased"  Grid.Column="2" Grid.Row="1" BackgroundColor="#8D81AA"/>
-            <Button x:Name="seven" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="0" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button x:Name="eight" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="1" Grid.Row="2" BackgroundColor="#8D81AA"/>
-            <Button x:Name="nine" Pressed="ButtonPressed" Released="ButtonReleased" Grid.Column="2" Grid.Row="2" BackgroundColor="#8D81AA"/>
+            <Button
+                x:Name="one"
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="two"
+                Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="three"
+                Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="four"
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="five"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="six"
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="seven"
+                Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="eight"
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
+            <Button
+                x:Name="nine"
+                Grid.Row="2"
+                Grid.Column="2"
+                BackgroundColor="#8D81AA"
+                Pressed="ButtonPressed"
+                Released="ButtonReleased" />
         </Grid>
     </StackLayout>
 

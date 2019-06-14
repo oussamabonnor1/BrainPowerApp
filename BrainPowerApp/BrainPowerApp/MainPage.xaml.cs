@@ -182,7 +182,7 @@ namespace BrainPowerApp
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
-            score = 12000;
+            score = 0;
         }
 
         private void ButtonReleased(object sender, EventArgs e)
