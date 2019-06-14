@@ -8,11 +8,12 @@ namespace BrainPowerApp
     public partial class MainPage : ContentPage
     {
         string originalButtonColor = "#8D81AA";
-        string[] colors = { "#59DAB4", "#E74C70", "#F188E8", "#5AB1E6", "#F79174","#F0B93A", "#92D1EC" };
+        string[] colors = { "#59DAB4", "#E74C70", "#F188E8", "#5AB1E6", "#F79174", "#F0B93A", "#92D1EC" };
         List<int> patternIndexes;
         List<Color> patternColors;
         bool patternShowing;
         int currentPatternIndex;
+        int score;
 
         public MainPage()
         {
@@ -20,6 +21,7 @@ namespace BrainPowerApp
             startGameButton.IsVisible = false;
             gridView.SizeChanged += (object sender, EventArgs e) => { gridView.HeightRequest = gridView.Width; };
             startGameButton.IsVisible = true;
+            nameLabel.Text = "Oussama";
             InitializingGameParameters();
         }
 
@@ -134,6 +136,8 @@ namespace BrainPowerApp
                     progressBar.Progress = ((float)(currentPatternIndex + 1) / patternIndexes.Count);
                     //going to the next iteration or waiting..
                     currentPatternIndex++;
+                    score += (10 * currentPatternIndex);
+                    scoreLabel.Text = "Score: " + score;
                     if (currentPatternIndex >= patternIndexes.Count)
                     {
                         label.Text = "Great Job!";
@@ -146,13 +150,18 @@ namespace BrainPowerApp
                 }
                 else
                 {
-                    startGameButton.IsVisible = true;
-                    progressBar.Progress = 1;
-                    progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
-                    label.Text = "Wrong! Press start to try again...";
-                    InitializingGameParameters();
+                    GameOver();
                 }
             }
+        }
+
+        void GameOver()
+        {
+            startGameButton.IsVisible = true;
+            progressBar.Progress = 1;
+            progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
+            label.Text = "Press start to try again";
+            InitializingGameParameters();
         }
 
         private async void StartGameButtonClicked(object sender, EventArgs e)
@@ -173,12 +182,13 @@ namespace BrainPowerApp
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
+            score = 12000;
         }
 
         private void ButtonReleased(object sender, EventArgs e)
         {
-            ((Button) sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
+            ((Button)sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
         }
-        
-}
+
+    }
 }
