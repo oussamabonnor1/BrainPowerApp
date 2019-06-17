@@ -1,5 +1,6 @@
 ﻿using BrainPowerApp.Model;
 using BrainPowerApp.ToolBox;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,10 +16,10 @@ namespace BrainPowerApp
         List<Color> patternColors;
         bool patternShowing;
         int currentPatternIndex;
-        int score;
         int bestScore;
         ApiClient client;
         Player currentPlayer;
+        string url = " http://c1e48312.ngrok.io";
 
         public MainPage()
         {
@@ -143,8 +144,8 @@ namespace BrainPowerApp
                     progressBar.Progress = ((float)(currentPatternIndex + 1) / patternIndexes.Count);
                     //going to the next iteration or waiting..
                     currentPatternIndex++;
-                    score += (10 * currentPatternIndex);
-                    scoreLabel.Text = "Score: " + score;
+                    currentPlayer.score += (10 * currentPatternIndex);
+                    scoreLabel.Text = "Score: " + currentPlayer.score;
                     if (currentPatternIndex >= patternIndexes.Count)
                     {
                         label.Text = "Great Job!";
@@ -167,16 +168,17 @@ namespace BrainPowerApp
             startGameButton.IsVisible = true;
             progressBar.Progress = 1;
             progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
-            Player player = new Player { name = "", score = score, recordDate = "today" };
             label.Text = "Press start to try again";
 
-            if (score > bestScore)
+            if (currentPlayer.score > bestScore)
             {
-                bestScore = score;
-                await client.PostRequest("http://adc4715b.ngrok.io" + "/api/leaderboard/", player);
+                bestScore = currentPlayer.score;
+                if (currentPlayer != null)
+                {
+                    await client.PutRequest(url + "/api/leaderboard/" + currentPlayer.id, currentPlayer);
+                }
             }
-            label.Text = "Score: " + score;
-            InitializingGameParameters();
+            await InitializingGameParameters();
         }
 
         private async void StartGameButtonClicked(object sender, EventArgs e)
@@ -197,10 +199,11 @@ namespace BrainPowerApp
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
-            score = 0;
+            currentPlayer.score = 0;
 
-            string result = await client.PostRequest("http://adc4715b.ngrok.io" + "/api/leaderboard/", player);
-            bestScore = await
+            string result = await client.GetRequest(url + "/api/leaderboard/"+currentPlayer.id);
+            currentPlayer = (Player) JsonConvert.DeserializeObject(result);
+            bestScore = currentPlayer.score;
         }
 
         private void ButtonReleased(object sender, EventArgs e)

@@ -31,5 +31,14 @@ namespace BrainPowerApp.ToolBox
             string resultContent = await result.Content.ReadAsStringAsync();
             return resultContent;
         }
+        public async Task<string> PutRequest(string url, Player player)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(url);
+            var content = new StringContent(JsonConvert.SerializeObject(player), Encoding.UTF8, "application/json");
+            var result = await client.PutAsync(url, content);
+            string resultContent = await result.Content.ReadAsStringAsync();
+            return resultContent;
+        }
     }
 }
