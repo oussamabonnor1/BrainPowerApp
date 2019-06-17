@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrainPowerApp.Model;
+using BrainPowerApp.ToolBox;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -14,6 +16,9 @@ namespace BrainPowerApp
         bool patternShowing;
         int currentPatternIndex;
         int score;
+        int bestScore;
+        ApiClient client;
+        Player currentPlayer;
 
         public MainPage()
         {
@@ -22,6 +27,8 @@ namespace BrainPowerApp
             gridView.SizeChanged += (object sender, EventArgs e) => { gridView.HeightRequest = gridView.Width; };
             startGameButton.IsVisible = true;
             nameLabel.Text = "Oussama";
+            client = new ApiClient();
+            currentPlayer = new Player { id = 4, name = "oussama", score = 10, recordDate = "today" };
             InitializingGameParameters();
         }
 
@@ -150,17 +157,25 @@ namespace BrainPowerApp
                 }
                 else
                 {
-                    GameOver();
+                    await GameOver();
                 }
             }
         }
 
-        void GameOver()
+        async Task GameOver()
         {
             startGameButton.IsVisible = true;
             progressBar.Progress = 1;
             progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
+            Player player = new Player { name = "", score = score, recordDate = "today" };
             label.Text = "Press start to try again";
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                await client.PostRequest("http://adc4715b.ngrok.io" + "/api/leaderboard/", player);
+            }
+            label.Text = "Score: " + score;
             InitializingGameParameters();
         }
 
@@ -176,13 +191,16 @@ namespace BrainPowerApp
             }
         }
 
-        void InitializingGameParameters()
+        async Task InitializingGameParameters()
         {
             patternIndexes = new List<int>();
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
             score = 0;
+
+            string result = await client.PostRequest("http://adc4715b.ngrok.io" + "/api/leaderboard/", player);
+            bestScore = await
         }
 
         private void ButtonReleased(object sender, EventArgs e)

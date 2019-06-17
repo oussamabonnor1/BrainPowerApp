@@ -1,4 +1,5 @@
-﻿using leaderboardAPI.Models;
+﻿using BrainPowerApp.Model;
+using leaderboardAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

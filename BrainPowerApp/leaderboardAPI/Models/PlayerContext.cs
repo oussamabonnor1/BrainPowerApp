@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using BrainPowerApp.Model;
 
 namespace leaderboardAPI.Models{
     public class PlayerContext : DbContext{

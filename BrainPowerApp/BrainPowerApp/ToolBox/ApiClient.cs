@@ -1,6 +1,6 @@
 ﻿using BrainPowerApp.Model;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -25,10 +25,11 @@ namespace BrainPowerApp.ToolBox
         public async Task<string> PostRequest(string url, Player player)
         {
             HttpClient client = new HttpClient();
-            StringContent content = new StringContent("", Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url, content);
-            var responseString = await response.Content.ReadAsStringAsync();
-            return responseString;
+            client.BaseAddress = new Uri(url);
+            var content = new StringContent(JsonConvert.SerializeObject(player), Encoding.UTF8, "application/json");
+            var result = await client.PostAsync(url, content);
+            string resultContent = await result.Content.ReadAsStringAsync();
+            return resultContent;
         }
     }
 }
