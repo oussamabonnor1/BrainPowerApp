@@ -6,10 +6,19 @@
     xmlns:local="clr-namespace:BrainPowerApp"
     BackgroundColor="#5C4887">
 
-    <StackLayout Spacing="15" VerticalOptions="FillAndExpand">
+    <StackLayout
+        Margin="0,15,0,0"
+        Spacing="15"
+        VerticalOptions="FillAndExpand">
 
         <StackLayout Orientation="Horizontal">
-            <Label x:Name="nameLabel" />
+            <Label
+                x:Name="nameLabel"
+                Margin="20,0,0,0"
+                FontSize="18"
+                HorizontalOptions="StartAndExpand"
+                Text="Loading name..."
+                TextColor="#C3BBD3" />
         </StackLayout>
         <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
 
@@ -32,15 +41,13 @@
                 TextColor="#fff" />
         </StackLayout>
 
-
         <Label
             x:Name="label"
             FontSize="18"
             HorizontalOptions="Center"
-            Text="Click start to play sequence"
+            Text=""
             TextColor="#fff"
             VerticalOptions="Center" />
-
 
         <Grid
             x:Name="gridView"

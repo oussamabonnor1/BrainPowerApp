@@ -24,12 +24,17 @@ namespace BrainPowerApp
         public MainPage()
         {
             InitializeComponent();
-            startGameButton.IsVisible = false;
             gridView.SizeChanged += (object sender, EventArgs e) => { gridView.HeightRequest = gridView.Width; };
-            startGameButton.IsVisible = true;
-            nameLabel.Text = "Oussama";
+        }
+
+        protected override async void OnAppearing()
+        {
             client = new ApiClient();
-            currentPlayer = new Player { id = 4, name = "oussama", score = 10, recordDate = "today" };
+            string result = await client.GetRequest(url + "/api/leaderboard/" + 4);
+            if (currentPlayer == null)
+            {
+                currentPlayer = JsonConvert.DeserializeObject<Player>(result);
+            }
             InitializingGameParameters();
         }
 
@@ -173,12 +178,13 @@ namespace BrainPowerApp
             if (currentPlayer.score > bestScore)
             {
                 bestScore = currentPlayer.score;
+                bestScoreLabel.Text = "Best score: " + bestScore;
                 if (currentPlayer != null)
                 {
                     await client.PutRequest(url + "/api/leaderboard/" + currentPlayer.id, currentPlayer);
                 }
             }
-            await InitializingGameParameters();
+            InitializingGameParameters();
         }
 
         private async void StartGameButtonClicked(object sender, EventArgs e)
@@ -193,17 +199,17 @@ namespace BrainPowerApp
             }
         }
 
-        async Task InitializingGameParameters()
+        void InitializingGameParameters()
         {
             patternIndexes = new List<int>();
             patternColors = new List<Color>();
             patternShowing = false;
             currentPatternIndex = 0;
-            currentPlayer.score = 0;
-
-            string result = await client.GetRequest(url + "/api/leaderboard/"+currentPlayer.id);
-            currentPlayer = (Player) JsonConvert.DeserializeObject(result);
             bestScore = currentPlayer.score;
+            currentPlayer.score = 0;
+            scoreLabel.Text = "Score: " + currentPlayer.score;
+            nameLabel.Text = currentPlayer.name;
+            bestScoreLabel.Text = "Best score: " + bestScore;
         }
 
         private void ButtonReleased(object sender, EventArgs e)
