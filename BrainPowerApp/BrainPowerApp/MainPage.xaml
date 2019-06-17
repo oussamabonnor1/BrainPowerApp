@@ -6,7 +6,12 @@
     xmlns:local="clr-namespace:BrainPowerApp"
     BackgroundColor="#5C4887">
 
-    <StackLayout Spacing="20" VerticalOptions="Center">
+    <StackLayout Spacing="15" VerticalOptions="FillAndExpand">
+
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="nameLabel" />
+        </StackLayout>
+        <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
 
         <StackLayout Orientation="Horizontal">
 
@@ -19,24 +24,14 @@
                 TextColor="#fff" />
 
             <Label
-                x:Name="nameLabel"
+                x:Name="bestScoreLabel"
                 Margin="0,0,20,0"
                 FontSize="18"
                 HorizontalOptions="EndAndExpand"
-                Text="Player: Smith"
+                Text="Best score: 00"
                 TextColor="#fff" />
         </StackLayout>
 
-        <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
-
-        <Button
-            x:Name="startGameButton"
-            BackgroundColor="#5A595B"
-            Clicked="StartGameButtonClicked"
-            HorizontalOptions="Center"
-            Text="Start"
-            TextColor="#fff"
-            WidthRequest="100" />
 
         <Label
             x:Name="label"
@@ -46,9 +41,10 @@
             TextColor="#fff"
             VerticalOptions="Center" />
 
+
         <Grid
             x:Name="gridView"
-            Margin="50,10"
+            Margin="50,20"
             HorizontalOptions="Fill"
             VerticalOptions="Center">
             <Grid.RowDefinitions>
@@ -126,6 +122,17 @@
                 Pressed="ButtonPressed"
                 Released="ButtonReleased" />
         </Grid>
+
+        <Button
+            x:Name="startGameButton"
+            BackgroundColor="#59DAB4"
+            Clicked="StartGameButtonClicked"
+            HorizontalOptions="Center"
+            Text="Start"
+            TextColor="#fff"
+            VerticalOptions="End"
+            WidthRequest="100" />
+
     </StackLayout>
 
 </ContentPage>
