@@ -24,8 +24,9 @@
                 Margin="10,0,0,0"
                 FontSize="18"
                 HorizontalOptions="StartAndExpand"
+                LineBreakMode="TailTruncation"
                 Text="Loading name..."
-                TextColor="#C3BBD3"
+                TextColor="#fff"
                 VerticalOptions="Center" />
             <ImageButton
                 Margin="0,0,20,0"
