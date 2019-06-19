@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        string url = " http://c1e48312.ngrok.io";
+        string url = "http://11c15710.ngrok.io";
 
         public MainPage()
         {
@@ -98,42 +98,45 @@ namespace BrainPowerApp
 
         public async void ButtonPressed(Object sender, EventArgs e)
         {
-            var name = ((Button)sender).Id;
-            if (name == one.Id)
+            if (!startGameButton.IsVisible)
             {
-                await CheckingPattern(0);
-            }
-            else if (name == two.Id)
-            {
-                await CheckingPattern(1);
-            }
-            else if (name == three.Id)
-            {
-                await CheckingPattern(2);
-            }
-            else if (name == four.Id)
-            {
-                await CheckingPattern(3);
-            }
-            else if (name == five.Id)
-            {
-                await CheckingPattern(4);
-            }
-            else if (name == six.Id)
-            {
-                await CheckingPattern(5);
-            }
-            else if (name == seven.Id)
-            {
-                await CheckingPattern(6);
-            }
-            else if (name == eight.Id)
-            {
-                await CheckingPattern(7);
-            }
-            else if (name == nine.Id)
-            {
-                await CheckingPattern(8);
+                var name = ((Button)sender).Id;
+                if (name == one.Id)
+                {
+                    await CheckingPattern(0);
+                }
+                else if (name == two.Id)
+                {
+                    await CheckingPattern(1);
+                }
+                else if (name == three.Id)
+                {
+                    await CheckingPattern(2);
+                }
+                else if (name == four.Id)
+                {
+                    await CheckingPattern(3);
+                }
+                else if (name == five.Id)
+                {
+                    await CheckingPattern(4);
+                }
+                else if (name == six.Id)
+                {
+                    await CheckingPattern(5);
+                }
+                else if (name == seven.Id)
+                {
+                    await CheckingPattern(6);
+                }
+                else if (name == eight.Id)
+                {
+                    await CheckingPattern(7);
+                }
+                else if (name == nine.Id)
+                {
+                    await CheckingPattern(8);
+                }
             }
         }
 
@@ -217,5 +220,9 @@ namespace BrainPowerApp
             ((Button)sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
         }
 
+        private void OpenLeaderboard(object sender, EventArgs e)
+        {
+           new LeaderboardPage();
+        }
     }
 }

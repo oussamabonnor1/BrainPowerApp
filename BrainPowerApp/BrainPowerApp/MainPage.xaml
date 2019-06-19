@@ -12,14 +12,30 @@
         VerticalOptions="FillAndExpand">
 
         <StackLayout Orientation="Horizontal">
+            <Image
+                Margin="20,0,0,0"
+                BackgroundColor="Transparent"
+                HeightRequest="45"
+                Source="profile.png"
+                VerticalOptions="Start"
+                WidthRequest="45" />
             <Label
                 x:Name="nameLabel"
-                Margin="20,0,0,0"
+                Margin="10,0,0,0"
                 FontSize="18"
                 HorizontalOptions="StartAndExpand"
                 Text="Loading name..."
-                TextColor="#C3BBD3" />
+                TextColor="#C3BBD3"
+                VerticalOptions="Center" />
+            <ImageButton
+                Margin="0,0,20,0"
+                BackgroundColor="Transparent"
+                Clicked="OpenLeaderboard"
+                Source="liste.png"
+                VerticalOptions="End"
+                WidthRequest="45" />
         </StackLayout>
+
         <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
 
         <StackLayout Orientation="Horizontal">
