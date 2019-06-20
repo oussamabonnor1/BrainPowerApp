@@ -29,6 +29,9 @@ namespace BrainPowerApp
 
         protected override async void OnAppearing()
         {
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = ConvertHexaToColor("#5C4887");
+            ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.White;
+            Title = "Loading...";
             client = new ApiClient();
             string result = await client.GetRequest(url + "/api/leaderboard/" + 4);
             if (currentPlayer == null)
@@ -210,6 +213,7 @@ namespace BrainPowerApp
             currentPatternIndex = 0;
             bestScore = currentPlayer.score;
             currentPlayer.score = 0;
+            Title = currentPlayer.name;
             scoreLabel.Text = "Score: " + currentPlayer.score;
             nameLabel.Text = currentPlayer.name;
             bestScoreLabel.Text = "Best score: " + bestScore;
@@ -220,9 +224,9 @@ namespace BrainPowerApp
             ((Button)sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
         }
 
-        private void OpenLeaderboard(object sender, EventArgs e)
+        private async void OpenLeaderboard(object sender, EventArgs e)
         {
-           new LeaderboardPage();
+            await Navigation.PushAsync(new NavigationPage(new LeaderboardPage()));
         }
     }
 }

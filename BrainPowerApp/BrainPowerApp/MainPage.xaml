@@ -6,6 +6,13 @@
     xmlns:local="clr-namespace:BrainPowerApp"
     BackgroundColor="#5C4887">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="btn"
+            Clicked="OpenLeaderboard"
+            Icon="profile.png" />
+    </ContentPage.ToolbarItems>
+
     <StackLayout
         Margin="0,15,0,0"
         Spacing="15"
