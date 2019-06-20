@@ -1,9 +1,7 @@
-﻿using System;
+﻿using BrainPowerApp.Model;
+using BrainPowerApp.ToolBox;
+using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,29 +11,38 @@ namespace BrainPowerApp
     public partial class LeaderboardPage : ContentPage
     {
         public ObservableCollection<string> Items { get; set; }
+        ApiClient client;
 
         public LeaderboardPage()
         {
             InitializeComponent();
-
             Items = new ObservableCollection<string>
             {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
+                "Loading list...",
             };
-			
-			MyListView.ItemsSource = Items;
+
+            MyListView.ItemsSource = Items;
+        }
+
+        protected override async void OnAppearing()
+        {
+            client = new ApiClient();
+            string result = await client.GetRequest(MainPage.url + "/api/leaderboard");
+            Player[] players = JsonConvert.DeserializeObject<Player[]>(result);
+            foreach (Player player in players)
+            {
+                Items.Add(player.name + ": " + player.score + " on " + player.recordDate);
+            }
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
+            {
                 return;
+            }
 
-            await DisplayAlert("Item Tapped", "the item "+ e.Item.ToString() +" was tapped.", "OK");
+            await DisplayAlert("Item Tapped", "the item " + e.Item.ToString() + " was tapped.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

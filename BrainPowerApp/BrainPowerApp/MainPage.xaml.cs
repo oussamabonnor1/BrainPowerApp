@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        string url = "http://11c15710.ngrok.io";
+        public static string url = "http://11c15710.ngrok.io";
 
         public MainPage()
         {
@@ -215,7 +215,6 @@ namespace BrainPowerApp
             currentPlayer.score = 0;
             Title = currentPlayer.name;
             scoreLabel.Text = "Score: " + currentPlayer.score;
-            nameLabel.Text = currentPlayer.name;
             bestScoreLabel.Text = "Best score: " + bestScore;
         }
 

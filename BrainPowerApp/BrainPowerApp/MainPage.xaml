@@ -18,7 +18,7 @@
         Spacing="15"
         VerticalOptions="FillAndExpand">
 
-        <StackLayout Orientation="Horizontal">
+        <!--<StackLayout Orientation="Horizontal">
             <Image
                 Margin="20,0,0,0"
                 BackgroundColor="Transparent"
@@ -42,7 +42,7 @@
                 Source="liste.png"
                 VerticalOptions="End"
                 WidthRequest="45" />
-        </StackLayout>
+        </StackLayout>-->
 
         <ProgressBar x:Name="progressBar" ProgressColor="#80CBC4" />
 
