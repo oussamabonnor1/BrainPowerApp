@@ -1,33 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BrainPowerApp.LeaderboardPage">
-  <ListView x:Name="MyListView"
+<ContentPage
+    x:Class="BrainPowerApp.LeaderboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout BackgroundColor="#5C4887">
+        <StackLayout HeightRequest="150">
+            <Label
+                Margin="0,15,0,0"
+                FontSize="24"
+                HorizontalTextAlignment="Center"
+                Text="Brain Power Leaderboard"
+                TextColor="#fff" />
+            <StackLayout Orientation="Horizontal">
+                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
+                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
+                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
+            </StackLayout>
+        </StackLayout>
+        <ListView
+            x:Name="MyListView"
+            BackgroundColor="#FFFFFF"
+            CachingStrategy="RecycleElement"
             ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-            
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding .}" />
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
+            VerticalOptions="StartAndExpand">
+
+            <!--  Built in Cells  -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <!--  Custom View Cells  -->
+            <!--
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
           <StackLayout>
-            <Label Text="{Binding Text}" 
+            <Label Text="{Binding Text}"
                    Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
+            <Label Text="{Binding Detail}"
                    Style="{DynamicResource ListItemDetailTextStyle}"/>
           </StackLayout>
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
-    -->
-  </ListView>
+            -->
+        </ListView>
+    </StackLayout>
 </ContentPage>
