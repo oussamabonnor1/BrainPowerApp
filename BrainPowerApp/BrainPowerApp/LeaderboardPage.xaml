@@ -4,22 +4,82 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <StackLayout BackgroundColor="#5C4887">
-        <StackLayout HeightRequest="150">
-            <Label
-                Margin="0,15,0,0"
-                FontSize="24"
-                HorizontalTextAlignment="Center"
-                Text="Brain Power Leaderboard"
-                TextColor="#fff" />
-            <StackLayout Orientation="Horizontal">
-                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
-                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
-                <Image HorizontalOptions="StartAndExpand" Source="profile.png" />
-            </StackLayout>
-        </StackLayout>
+    <Grid BackgroundColor="#5C4887">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.6*" />
+        </Grid.RowDefinitions>
+        <!--  Title  -->
+        <Label
+            Grid.Row="0"
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalTextAlignment="Center"
+            Text="Brain Power Leaderboard"
+            TextColor="#fff"
+            VerticalOptions="CenterAndExpand" />
+
+        <Grid Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--  Second place  -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.2*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="profile.png" />
+                <Label
+                    Grid.Row="2"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    Text="Second place"
+                    TextColor="#fff" />
+            </Grid>
+            <!--  First place  -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.75*" />
+                    <RowDefinition Height="0.25*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="profile.png" />
+                <Label
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    Text="First place"
+                    TextColor="#fff" />
+            </Grid>
+            <!--  Third place  -->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.2*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="profile.png" />
+                <Label
+                    Grid.Row="2"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    Text="Third place"
+                    TextColor="#fff" />
+            </Grid>
+        </Grid>
         <ListView
             x:Name="MyListView"
+            Grid.Row="2"
             BackgroundColor="#FFFFFF"
             CachingStrategy="RecycleElement"
             ItemsSource="{Binding Items}"
@@ -48,5 +108,5 @@
     </ListView.ItemTemplate>
             -->
         </ListView>
-    </StackLayout>
+    </Grid>
 </ContentPage>
