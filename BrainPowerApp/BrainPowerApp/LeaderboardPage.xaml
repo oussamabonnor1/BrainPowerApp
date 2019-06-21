@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="BrainPowerApp.LeaderboardPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
 
     <Grid BackgroundColor="#5C4887">
         <Grid.RowDefinitions>
@@ -14,7 +15,6 @@
         <Label
             Grid.Row="0"
             FontAttributes="Bold"
-            FontSize="24"
             HorizontalTextAlignment="Center"
             Text="Brain Power Leaderboard"
             TextColor="#fff"
@@ -37,7 +37,6 @@
                 <Label
                     Grid.Row="2"
                     FontAttributes="Bold"
-                    FontSize="18"
                     HorizontalTextAlignment="Center"
                     LineBreakMode="TailTruncation"
                     Text="Second place"
@@ -53,7 +52,6 @@
                 <Label
                     Grid.Row="1"
                     FontAttributes="Bold"
-                    FontSize="18"
                     HorizontalTextAlignment="Center"
                     LineBreakMode="TailTruncation"
                     Text="First place"
@@ -70,7 +68,6 @@
                 <Label
                     Grid.Row="2"
                     FontAttributes="Bold"
-                    FontSize="18"
                     HorizontalTextAlignment="Center"
                     LineBreakMode="TailTruncation"
                     Text="Third place"
@@ -91,22 +88,17 @@
                     <TextCell Text="{Binding .}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
-
             <!--  Custom View Cells  -->
-            <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}"
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}"
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-            -->
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Style="{DynamicResource ListItemTextStyle}" Text="{Binding Text}" />
+                            <Label Style="{DynamicResource ListItemDetailTextStyle}" Text="{Binding Detail}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
         </ListView>
     </Grid>
 </ContentPage>
