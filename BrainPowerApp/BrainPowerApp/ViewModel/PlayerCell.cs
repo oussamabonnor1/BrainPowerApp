@@ -20,5 +20,13 @@ namespace BrainPowerApp.ViewModel
             get { return (string)GetValue(ScoreProperty); }
             set { SetValue(ScoreProperty, value); }
         }
+
+        public static readonly BindableProperty RankProperty =
+            BindableProperty.Create("PlayerRank", typeof(string), typeof(PlayerCell), "");
+        public string PlayerRank
+        {
+            get { return (string)GetValue(RankProperty); }
+            set { SetValue(RankProperty, value); }
+        }
     }
 }
