@@ -3,6 +3,7 @@
     x:Class="BrainPowerApp.LeaderboardPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BrainPowerApp.ViewModel"
     NavigationPage.HasNavigationBar="false">
 
     <Grid BackgroundColor="#5C4887">
@@ -92,12 +93,10 @@
             <!--  Custom View Cells  -->
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Style="{DynamicResource ListItemTextStyle}" Text="{Binding Text}" />
-                            <Label Style="{DynamicResource ListItemDetailTextStyle}" Text="{Binding Detail}" />
-                        </StackLayout>
-                    </ViewCell>
+                    <local:PlayerCell
+                        PlayerName="{Binding PlayerName}"
+                        PlayerRank="{Binding PlayerRank}"
+                        PlayerScore="{Binding PlayerScore}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

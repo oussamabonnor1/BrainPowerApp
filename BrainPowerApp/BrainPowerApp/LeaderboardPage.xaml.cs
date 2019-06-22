@@ -1,5 +1,6 @@
 ﻿using BrainPowerApp.Model;
 using BrainPowerApp.ToolBox;
+using BrainPowerApp.ViewModel;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -22,6 +23,15 @@ namespace BrainPowerApp
             };
 
             MyListView.ItemsSource = items;
+            MyListView.ItemTemplate = new DataTemplate(() =>
+            {
+                var playerCell = new PlayerCell();
+                playerCell.SetBinding(PlayerCell.NameProperty, "PlayerName");
+                playerCell.SetBinding(PlayerCell.RankProperty, "PlayerRank");
+                playerCell.SetBinding(PlayerCell.ScoreProperty, "PlayerScore");
+
+                return playerCell;
+            });
         }
 
         protected override async void OnAppearing()
