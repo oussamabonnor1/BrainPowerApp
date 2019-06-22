@@ -26,7 +26,6 @@ namespace BrainPowerApp
 
         protected override async void OnAppearing()
         {
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.Blue;
             client = new ApiClient();
             string result = await client.GetRequest(MainPage.url + "/api/leaderboard");
             items.Clear();

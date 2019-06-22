@@ -7,14 +7,15 @@
 
     <Grid BackgroundColor="#5C4887">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*" />
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="0.25*" />
             <RowDefinition Height="0.6*" />
         </Grid.RowDefinitions>
         <!--  Title  -->
         <Label
             Grid.Row="0"
             FontAttributes="Bold"
+            FontSize="18"
             HorizontalTextAlignment="Center"
             Text="Brain Power Leaderboard"
             TextColor="#fff"
@@ -77,19 +78,19 @@
         <ListView
             x:Name="MyListView"
             Grid.Row="2"
-            BackgroundColor="#FFFFFF"
+            BackgroundColor="#8D81AA"
             CachingStrategy="RecycleElement"
             ItemsSource="{Binding Items}"
             VerticalOptions="StartAndExpand">
 
             <!--  Built in Cells  -->
-            <ListView.ItemTemplate>
+            <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding .}" />
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.ItemTemplate>-->
             <!--  Custom View Cells  -->
-            <!--<ListView.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
@@ -98,7 +99,7 @@
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>-->
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </ContentPage>
