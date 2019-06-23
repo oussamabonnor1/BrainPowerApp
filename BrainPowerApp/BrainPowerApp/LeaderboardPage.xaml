@@ -50,7 +50,7 @@
                     <RowDefinition Height="0.75*" />
                     <RowDefinition Height="0.25*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="profile.png" />
+                <Image Grid.Row="0" Source="redplayer.png" />
                 <Label
                     Grid.Row="1"
                     FontAttributes="Bold"
@@ -66,7 +66,7 @@
                     <RowDefinition Height="0.7*" />
                     <RowDefinition Height="0.2*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="profile.png" />
+                <Image Grid.Row="1" Source="blueplayer.png" />
                 <Label
                     Grid.Row="2"
                     FontAttributes="Bold"
@@ -79,7 +79,6 @@
         <StackLayout Grid.Row="2" Padding="20,10,20,0">
             <ListView
                 x:Name="MyListView"
-                BackgroundColor="#fff"
                 CachingStrategy="RecycleElement"
                 ItemsSource="{Binding Items}"
                 RowHeight="70"
@@ -95,7 +94,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="5">
+                            <Grid Margin="0,0,0,1" BackgroundColor="#fff">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width=".1*" />
                                     <ColumnDefinition Width=".25*" />
@@ -105,17 +104,19 @@
                                 <Label
                                     Grid.Column="0"
                                     FontSize="16"
-                                    Text="{Binding name}"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding rank}"
                                     VerticalOptions="Center" />
-                                <Image Grid.Column="1" Source="profile.png" />
+                                <Image Grid.Column="1" Source="redplayer.ong" />
                                 <Label
                                     Grid.Column="2"
                                     FontSize="16"
-                                    Text="{Binding rank}"
+                                    Text="{Binding name}"
                                     VerticalOptions="Center" />
                                 <Label
                                     Grid.Column="3"
                                     FontSize="16"
+                                    HorizontalOptions="Center"
                                     Text="{Binding score}"
                                     VerticalOptions="Center" />
                             </Grid>

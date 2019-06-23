@@ -10,13 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\blueplayer.png" />
     <None Remove="Resources\Liste.png" />
     <None Remove="Resources\profile.png" />
+    <None Remove="Resources\redplayer.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\blueplayer.png" />
     <EmbeddedResource Include="Resources\Liste.png" />
     <EmbeddedResource Include="Resources\profile.png" />
+    <EmbeddedResource Include="Resources\redplayer.png" />
   </ItemGroup>
 
   <ItemGroup>

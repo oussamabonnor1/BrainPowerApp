@@ -2,6 +2,7 @@
 using BrainPowerApp.ToolBox;
 using BrainPowerApp.ViewModel;
 using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,6 +14,7 @@ namespace BrainPowerApp
     {
         public ObservableCollection<PlayerCell> playerCells { get; set; }
         ApiClient client;
+        string[] iconNames = { "profile.png", "blueplayer.png", "redplayer.png" };
 
         public LeaderboardPage()
         {
@@ -34,7 +36,9 @@ namespace BrainPowerApp
             Player[] players = JsonConvert.DeserializeObject<Player[]>(result);
             foreach (Player player in players)
             {
-                Image image = new Image { Source = "profile.png" };
+                int random = new Random().Next(3);
+
+                Image image = new Image { Source = iconNames[random] };
                 playerCells.Add(new PlayerCell
                 {
                     name = player.name,
