@@ -11,30 +11,37 @@ namespace BrainPowerApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LeaderboardPage : ContentPage
     {
-        public ObservableCollection<string> items { get; set; }
+        public ObservableCollection<PlayerCell> playerCells { get; set; }
         ApiClient client;
 
         public LeaderboardPage()
         {
             InitializeComponent();
-            items = new ObservableCollection<string>
+            playerCells = new ObservableCollection<PlayerCell>
             {
-                "Loading list...",
+                new PlayerCell{},
             };
 
-            MyListView.ItemsSource = items;
-            MyListView.ItemTemplate = new DataTemplate(typeof(PlayerCell));
+            MyListView.ItemsSource = playerCells;
+            //MyListView.ItemTemplate = new DataTemplate(typeof(PlayerCell));
         }
 
         protected override async void OnAppearing()
         {
             client = new ApiClient();
             string result = await client.GetRequest(MainPage.url + "/api/leaderboard");
-            items.Clear();
+            playerCells.Clear();
             Player[] players = JsonConvert.DeserializeObject<Player[]>(result);
             foreach (Player player in players)
             {
-                items.Add(player.name + ": " + player.score + " on " + player.recordDate);
+                Image image = new Image { Source = "profile.png" };
+                playerCells.Add(new PlayerCell
+                {
+                    name = player.name,
+                    score = player.score,
+                    rank = player.id + "",
+                    image = image
+                });
             }
         }
 

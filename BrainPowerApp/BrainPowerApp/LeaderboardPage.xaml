@@ -76,37 +76,57 @@
                     TextColor="#fff" />
             </Grid>
         </Grid>
-        <ListView
-            x:Name="MyListView"
-            Grid.Row="2"
-            BackgroundColor="#8D81AA"
-            CachingStrategy="RecycleElement"
-            ItemsSource="{Binding Items}"
-            VerticalOptions="StartAndExpand">
+        <StackLayout Grid.Row="2" Padding="20,10,20,0">
+            <ListView
+                x:Name="MyListView"
+                BackgroundColor="#fff"
+                CachingStrategy="RecycleElement"
+                ItemsSource="{Binding Items}"
+                RowHeight="70"
+                VerticalOptions="FillAndExpand">
 
-            <!--  Built in Cells  -->
-            <!--<ListView.ItemTemplate>
+                <!--  Built in Cells  -->
+                <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding .}" />
                 </DataTemplate>
             </ListView.ItemTemplate>-->
-            <!--  Custom View Cells  -->
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Margin="5" Orientation="Horizontal">
-                            <Image Source="profile.png" WidthRequest="50" />
-                            <Label Text="{Binding playerName}" />
-                            <Label Text="{Binding playerScore}" />
-                            <Label Text="{Binding playerRank}" />
-                        </StackLayout>
-                    </ViewCell>
-                    <!--<local:PlayerCell
+                <!--  Custom View Cells  -->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".1*" />
+                                    <ColumnDefinition Width=".25*" />
+                                    <ColumnDefinition Width=".45*" />
+                                    <ColumnDefinition Width=".2*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    FontSize="16"
+                                    Text="{Binding name}"
+                                    VerticalOptions="Center" />
+                                <Image Grid.Column="1" Source="profile.png" />
+                                <Label
+                                    Grid.Column="2"
+                                    FontSize="16"
+                                    Text="{Binding rank}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Column="3"
+                                    FontSize="16"
+                                    Text="{Binding score}"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                        <!--<local:PlayerCell
                         PlayerName="{Binding PlayerName}"
                         PlayerRank="{Binding PlayerRank}"
                         PlayerScore="{Binding PlayerScore}" />-->
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </Grid>
 </ContentPage>
