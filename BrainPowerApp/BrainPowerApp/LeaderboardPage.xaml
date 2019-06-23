@@ -93,10 +93,18 @@
             <!--  Custom View Cells  -->
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <local:PlayerCell
+                    <ViewCell>
+                        <StackLayout Margin="5" Orientation="Horizontal">
+                            <Image Source="profile.png" WidthRequest="50" />
+                            <Label Text="{Binding playerName}" />
+                            <Label Text="{Binding playerScore}" />
+                            <Label Text="{Binding playerRank}" />
+                        </StackLayout>
+                    </ViewCell>
+                    <!--<local:PlayerCell
                         PlayerName="{Binding PlayerName}"
                         PlayerRank="{Binding PlayerRank}"
-                        PlayerScore="{Binding PlayerScore}" />
+                        PlayerScore="{Binding PlayerScore}" />-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

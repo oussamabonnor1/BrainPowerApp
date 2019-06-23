@@ -23,15 +23,7 @@ namespace BrainPowerApp
             };
 
             MyListView.ItemsSource = items;
-            MyListView.ItemTemplate = new DataTemplate(() =>
-            {
-                var playerCell = new PlayerCell();
-                playerCell.SetBinding(PlayerCell.NameProperty, "PlayerName");
-                playerCell.SetBinding(PlayerCell.RankProperty, "PlayerRank");
-                playerCell.SetBinding(PlayerCell.ScoreProperty, "PlayerScore");
-
-                return playerCell;
-            });
+            MyListView.ItemTemplate = new DataTemplate(typeof(PlayerCell));
         }
 
         protected override async void OnAppearing()

@@ -28,5 +28,25 @@ namespace BrainPowerApp.ViewModel
             get { return (string)GetValue(RankProperty); }
             set { SetValue(RankProperty, value); }
         }
+
+        public PlayerCell()
+        {
+            StackLayout stackLayout = new StackLayout();
+            Image image = new Image();
+            Label score = new Label();
+            Label name = new Label();
+            Label rank = new Label();
+
+            score.SetBinding(Label.TextProperty, "playerScore");
+            name.SetBinding(Label.TextProperty, "playerName");
+            rank.SetBinding(Label.TextProperty, "playerRank");
+
+            stackLayout.Children.Add(image);
+            stackLayout.Children.Add(score);
+            stackLayout.Children.Add(name);
+            stackLayout.Children.Add(rank);
+
+            View = stackLayout;
+        }
     }
 }
