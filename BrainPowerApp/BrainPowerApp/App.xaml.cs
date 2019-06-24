@@ -10,7 +10,7 @@ namespace BrainPowerApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new LogInPage());
         }
 
         protected override void OnStart()

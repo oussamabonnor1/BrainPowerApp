@@ -48,15 +48,13 @@ namespace BrainPowerApp
             }
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
             {
                 return;
             }
-
-            await DisplayAlert("Item Tapped", "the item " + e.Item.ToString() + " was tapped.", "OK");
-
+ 
             playerCells[playerCells.IndexOf((PlayerCell)((ListView)sender).SelectedItem)].name = "hello";
             ((PlayerCell)((ListView)sender).SelectedItem).name = "brb";
 
