@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        public static string url = "http://3dddd432.ngrok.io";
+        public static string url = "http://8cd6bf21.ngrok.io";
 
         public MainPage()
         {
@@ -29,7 +29,7 @@ namespace BrainPowerApp
 
         protected override async void OnAppearing()
         {
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = ConvertHexaToColor("#5C4887");
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#5C4887");
             ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.White;
             Title = "Loading...";
             client = new ApiClient();
@@ -79,25 +79,25 @@ namespace BrainPowerApp
         {
             patternShowing = true;
             patternIndexes.Add(new Random().Next(9));
-            patternColors.Add(ConvertHexaToColor(colors[new Random().Next(colors.Length)]));
+            patternColors.Add(Color.FromHex(colors[new Random().Next(colors.Length)]));
             for (int i = 0; i < patternIndexes.Count; i++)
             {
                 SelectingButton(patternIndexes[i], patternColors[i]);
                 //waiting for a bit here
                 await Task.Delay(1000);
-                SelectingButton(patternIndexes[i], ConvertHexaToColor(originalButtonColor));
+                SelectingButton(patternIndexes[i], Color.FromHex(originalButtonColor));
                 await Task.Delay(250);
             }
             label.Text = "Try to replay the pattern!";
             patternShowing = false;
         }
 
-        Color ConvertHexaToColor(string hexaColor)
-        {
-            //i never expected to write so much nonsense on my first time on Xamarin
-            ColorTypeConverter converter = new ColorTypeConverter();
-            return (Color)converter.ConvertFromInvariantString(hexaColor);
-        }
+        //Color ConvertHexaToColor(string hexaColor)
+        //{
+        //    //i never expected to write so much nonsense on my first time on Xamarin
+        //    ColorTypeConverter converter = new ColorTypeConverter();
+        //    return (Color)converter.ConvertFromInvariantString(hexaColor);
+        //}
 
         public async void ButtonPressed(Object sender, EventArgs e)
         {
@@ -178,7 +178,7 @@ namespace BrainPowerApp
         {
             startGameButton.IsVisible = true;
             progressBar.Progress = 1;
-            progressBar.ProgressColor = ConvertHexaToColor("#E74C70"); //making progress color in red
+            progressBar.ProgressColor = Color.FromHex("#E74C70"); //making progress color in red
             label.Text = "Press start to try again";
 
             if (currentPlayer.score > bestScore)
@@ -200,7 +200,7 @@ namespace BrainPowerApp
                 startGameButton.IsVisible = false;
                 label.Text = "Remember the sequence!";
                 progressBar.Progress = 0;
-                progressBar.ProgressColor = ConvertHexaToColor("#80CBC4"); //making progress color is green
+                progressBar.ProgressColor = Color.FromHex("#80CBC4"); //making progress color is green
                 await MakingPattern();
             }
         }
@@ -220,7 +220,7 @@ namespace BrainPowerApp
 
         private void ButtonReleased(object sender, EventArgs e)
         {
-            ((Button)sender).BackgroundColor = ConvertHexaToColor(originalButtonColor);
+            ((Button)sender).BackgroundColor = Color.FromHex(originalButtonColor);
         }
 
         private async void OpenLeaderboard(object sender, EventArgs e)

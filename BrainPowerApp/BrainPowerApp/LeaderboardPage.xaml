@@ -35,7 +35,7 @@
                     <RowDefinition Height="0.7*" />
                     <RowDefinition Height="0.2*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="profile.png" />
+                <Image Grid.Row="1" Source="blueplayer.png" />
                 <Label
                     Grid.Row="2"
                     FontAttributes="Bold"

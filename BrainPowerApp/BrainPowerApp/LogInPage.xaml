@@ -5,6 +5,46 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="#5C4887">
     <ContentPage.Content>
-        <StackLayout />
+        <Grid Margin="50,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".05*" />
+                    <RowDefinition Height=".5*" />
+                    <RowDefinition Height=".05*" />
+                    <RowDefinition Height=".1*" />
+                    <RowDefinition Height=".2*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="profile.png" />
+                <Label
+                    Grid.Row="3"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalTextAlignment="Center"
+                    Text="Brain Power"
+                    TextColor="#fff" />
+                <Label
+                    Grid.Row="4"
+                    FontSize="16"
+                    HorizontalTextAlignment="Center"
+                    Text="Your visual memory training companion"
+                    TextColor="#fff" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".05*" />
+                    <RowDefinition Height=".15*" />
+                    <RowDefinition Height=".1*" />
+                    <RowDefinition Height=".1*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="blueplayer.png" />
+                <Entry Grid.Row="2" Placeholder="Enter username" />
+            </Grid>
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>
