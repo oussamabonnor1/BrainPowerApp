@@ -38,13 +38,12 @@ namespace BrainPowerApp
             {
                 int random = new Random().Next(3);
 
-                Image image = new Image { Source = iconNames[random] };
                 playerCells.Add(new PlayerCell
                 {
                     name = player.name,
                     score = player.score,
                     rank = player.id + "",
-                    image = image
+                    image = iconNames[random]
                 });
             }
         }
@@ -59,6 +58,7 @@ namespace BrainPowerApp
             await DisplayAlert("Item Tapped", "the item " + e.Item.ToString() + " was tapped.", "OK");
 
             playerCells[playerCells.IndexOf((PlayerCell)((ListView)sender).SelectedItem)].name = "hello";
+            ((PlayerCell)((ListView)sender).SelectedItem).name = "brb";
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
