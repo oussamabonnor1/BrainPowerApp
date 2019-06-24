@@ -76,10 +76,15 @@
                     TextColor="#fff" />
             </Grid>
         </Grid>
-        <StackLayout Grid.Row="2" Padding="20,10,20,0">
+
+        <StackLayout
+            Grid.Row="2"
+            Padding="20,10,20,0"
+            BackgroundColor="#E1E2E1">
             <ListView
                 x:Name="MyListView"
                 CachingStrategy="RecycleElement"
+                ItemTapped="Handle_ItemTapped"
                 ItemsSource="{Binding Items}"
                 RowHeight="70"
                 VerticalOptions="FillAndExpand">
@@ -94,10 +99,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="0,0,0,1" BackgroundColor="#fff">
+                            <Grid BackgroundColor="#fff">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width=".1*" />
-                                    <ColumnDefinition Width=".25*" />
+                                    <ColumnDefinition Width=".2*" />
                                     <ColumnDefinition Width=".45*" />
                                     <ColumnDefinition Width=".2*" />
                                 </Grid.ColumnDefinitions>
@@ -107,7 +112,10 @@
                                     HorizontalOptions="Center"
                                     Text="{Binding rank}"
                                     VerticalOptions="Center" />
-                                <Image Grid.Column="1" Source="redplayer.ong" />
+                                <Image
+                                    Grid.Column="1"
+                                    Margin="10"
+                                    Source="{Binding image}" />
                                 <Label
                                     Grid.Column="2"
                                     FontSize="16"

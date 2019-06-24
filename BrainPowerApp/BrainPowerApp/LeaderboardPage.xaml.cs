@@ -49,17 +49,19 @@ namespace BrainPowerApp
             }
         }
 
-        //async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-        //    if (e.Item == null)
-        //    {
-        //        return;
-        //    }
+        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item == null)
+            {
+                return;
+            }
 
-        //    await DisplayAlert("Item Tapped", "the item " + e.Item.ToString() + " was tapped.", "OK");
+            await DisplayAlert("Item Tapped", "the item " + e.Item.ToString() + " was tapped.", "OK");
 
-        //    //Deselect Item
-        //    ((ListView)sender).SelectedItem = null;
-        //}
+            playerCells[playerCells.IndexOf((PlayerCell)((ListView)sender).SelectedItem)].name = "hello";
+
+            //Deselect Item
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

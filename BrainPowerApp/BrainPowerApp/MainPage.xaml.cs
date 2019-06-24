@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        public static string url = "http://b10be5a4.ngrok.io";
+        public static string url = "http://3dddd432.ngrok.io";
 
         public MainPage()
         {
