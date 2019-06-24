@@ -11,5 +11,10 @@ namespace BrainPowerApp
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void RegisterPlayer(object sender, System.EventArgs e)
+        {
+
+        }
+    }
 }

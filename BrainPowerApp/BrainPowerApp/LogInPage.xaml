@@ -3,47 +3,72 @@
     x:Class="BrainPowerApp.LogInPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="#5C4887">
+    BackgroundColor="#5C4887"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Grid Margin="50,15">
+        <Grid Margin="0,25">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height=".25*" />
+                <RowDefinition Height=".5*" />
+                <RowDefinition Height=".1*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height=".05*" />
-                    <RowDefinition Height=".5*" />
-                    <RowDefinition Height=".05*" />
-                    <RowDefinition Height=".1*" />
+                    <RowDefinition Height=".8*" />
                     <RowDefinition Height=".2*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="profile.png" />
+                <Image Grid.Row="0" Source="brainicon.png" />
                 <Label
-                    Grid.Row="3"
+                    Grid.Row="1"
                     FontAttributes="Bold"
                     FontSize="22"
                     HorizontalTextAlignment="Center"
                     Text="Brain Power"
                     TextColor="#fff" />
-                <Label
-                    Grid.Row="4"
-                    FontSize="16"
-                    HorizontalTextAlignment="Center"
-                    Text="Your visual memory training companion"
-                    TextColor="#fff" />
             </Grid>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height=".05*" />
-                    <RowDefinition Height=".15*" />
-                    <RowDefinition Height=".1*" />
-                    <RowDefinition Height=".1*" />
-                </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="blueplayer.png" />
-                <Entry Grid.Row="2" Placeholder="Enter username" />
-            </Grid>
+            <StackLayout
+                Grid.Row="1"
+                Margin="50,0"
+                BackgroundColor="#fff">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".05*" />
+                        <RowDefinition Height=".3*" />
+                        <RowDefinition Height=".1*" />
+                        <RowDefinition Height=".1*" />
+                    </Grid.RowDefinitions>
+                    <!--  The avatar selection part  -->
+                    <Grid Grid.Row="1" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="0" Source="arrow" />
+                        <Image Grid.Column="1" Source="blueplayer.png" />
+                        <ImageButton Grid.Column="2" Source="arrow" />
+                    </Grid>
+                    <Entry
+                        Grid.Row="2"
+                        Margin="15,0"
+                        Placeholder="Enter username"
+                        TextColor="Accent" />
+                    <Button
+                        Grid.Row="3"
+                        BackgroundColor="#59DAB4"
+                        Clicked="RegisterPlayer"
+                        Text="Register"
+                        TextColor="#fff" />
+                </Grid>
+            </StackLayout>
 
+            <Label
+                Grid.Row="2"
+                Margin="0,15,0,0"
+                FontSize="15"
+                HorizontalTextAlignment="Center"
+                Text="Your visual memory training companion"
+                TextColor="#E2E2E2" />
         </Grid>
 
     </ContentPage.Content>
