@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\arrowleft.png" />
+    <None Remove="Resources\arrowright.png" />
     <None Remove="Resources\blueplayer.png" />
     <None Remove="Resources\brainicon.png" />
     <None Remove="Resources\Liste.png" />
@@ -18,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\arrowleft.png" />
+    <EmbeddedResource Include="Resources\arrowright.png" />
     <EmbeddedResource Include="Resources\blueplayer.png" />
     <EmbeddedResource Include="Resources\brainicon.png" />
     <EmbeddedResource Include="Resources\Liste.png" />

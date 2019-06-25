@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BrainPowerApp.App">
+<Application
+    x:Class="BrainPowerApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
-
+        <OnPlatform x:Key="BrainFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="brainfonts.ttf#fontello" />
+        </OnPlatform>
     </Application.Resources>
 </Application>

@@ -40,13 +40,29 @@
                     <!--  The avatar selection part  -->
                     <Grid Grid.Row="1" Margin="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width=".5*" />
                             <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width=".5*" />
                         </Grid.ColumnDefinitions>
-                        <ImageButton Grid.Column="0" Source="arrow" />
-                        <Image Grid.Column="1" Source="blueplayer.png" />
-                        <ImageButton Grid.Column="2" Source="arrow" />
+
+                        <ImageButton
+                            x:Name="leftArraow"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            Clicked="ChangeAvatar"
+                            HeightRequest="45"
+                            Source="arrowleft.png" />
+                        <Image
+                            x:Name="avatar"
+                            Grid.Column="1"
+                            Source="blueplayer.png" />
+                        <ImageButton
+                            x:Name="rightArraow"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent"
+                            Clicked="ChangeAvatar"
+                            HeightRequest="45"
+                            Source="arrowright.png" />
                     </Grid>
                     <Entry
                         Grid.Row="2"
