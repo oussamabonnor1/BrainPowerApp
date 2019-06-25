@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        public static string url = "http://8cd6bf21.ngrok.io";
+        public static string url = "http://f3bd0f39.ngrok.io";
 
         public MainPage()
         {
@@ -33,7 +33,7 @@ namespace BrainPowerApp
             ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.White;
             Title = "Loading...";
             client = new ApiClient();
-            string result = await client.GetRequest(url + "/api/leaderboard/" + 4);
+            string result = await client.GetRequest(url + "/api/leaderboard/" + LogInPage.playerId);
             if (currentPlayer == null)
             {
                 currentPlayer = JsonConvert.DeserializeObject<Player>(result);

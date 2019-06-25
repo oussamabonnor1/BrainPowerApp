@@ -35,6 +35,7 @@
                         <RowDefinition Height=".05*" />
                         <RowDefinition Height=".3*" />
                         <RowDefinition Height=".1*" />
+                        <RowDefinition Height=".05*" />
                         <RowDefinition Height=".1*" />
                     </Grid.RowDefinitions>
                     <!--  The avatar selection part  -->
@@ -65,12 +66,13 @@
                             Source="arrowright.png" />
                     </Grid>
                     <Entry
+                        x:Name="playerNameInput"
                         Grid.Row="2"
                         Margin="15,0"
                         Placeholder="Enter username"
                         TextColor="Accent" />
                     <Button
-                        Grid.Row="3"
+                        Grid.Row="4"
                         BackgroundColor="#59DAB4"
                         Clicked="RegisterPlayer"
                         Text="Register"
