@@ -4,7 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BrainPowerApp.ViewModel"
-    NavigationPage.HasNavigationBar="false">
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
 
     <Grid BackgroundColor="#5C4887">
         <Grid.RowDefinitions>

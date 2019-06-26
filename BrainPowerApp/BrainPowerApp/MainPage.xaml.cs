@@ -19,7 +19,7 @@ namespace BrainPowerApp
         int bestScore;
         ApiClient client;
         Player currentPlayer;
-        public static string url = "http://f3bd0f39.ngrok.io";
+        public static string url = "http://6b7e890a.ngrok.io";
 
         public MainPage()
         {
@@ -225,7 +225,7 @@ namespace BrainPowerApp
 
         private async void OpenLeaderboard(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NavigationPage(new LeaderboardPage()));
+            await ((NavigationPage)Application.Current.MainPage).Navigation.PushAsync(new NavigationPage(new LeaderboardPage()));
         }
     }
 }
