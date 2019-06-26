@@ -8,6 +8,7 @@ namespace BrainPowerApp.Model
         public string name { get; set; }
         public int score { get; set; }
         public string recordDate { get; set; }
+        public int avatarId { get; set; }
 
     }
 }
