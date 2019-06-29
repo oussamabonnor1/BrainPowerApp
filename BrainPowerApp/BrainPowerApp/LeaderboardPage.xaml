@@ -36,8 +36,12 @@
                     <RowDefinition Height="0.7*" />
                     <RowDefinition Height="0.2*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="blueplayer.png" />
+                <Image
+                    x:Name="secondPlaceImage"
+                    Grid.Row="1"
+                    Source="blueplayer.png" />
                 <Label
+                    x:Name="secondPlaceLabel"
                     Grid.Row="2"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"
@@ -51,8 +55,12 @@
                     <RowDefinition Height="0.75*" />
                     <RowDefinition Height="0.25*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="redplayer.png" />
+                <Image
+                    x:Name="firstPlaceImage"
+                    Grid.Row="0"
+                    Source="redplayer.png" />
                 <Label
+                    x:Name="firstPlaceLabel"
                     Grid.Row="1"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"
@@ -67,8 +75,12 @@
                     <RowDefinition Height="0.7*" />
                     <RowDefinition Height="0.2*" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="blueplayer.png" />
+                <Image
+                    x:Name="thirdPlaceImage"
+                    Grid.Row="1"
+                    Source="blueplayer.png" />
                 <Label
+                    x:Name="thirdPlaceLabel"
                     Grid.Row="2"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"

@@ -4,8 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="#5C4887"
-    NavigationPage.HasBackButton="False"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    NavigationPage.TitleView="hello">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem

@@ -213,7 +213,6 @@ namespace BrainPowerApp
             currentPatternIndex = 0;
             bestScore = currentPlayer.score;
             currentPlayer.score = 0;
-            Title = currentPlayer.name;
             Icon = LogInPage.iconPaths[currentPlayer.avatarId];
             scoreLabel.Text = "Score: " + currentPlayer.score;
             bestScoreLabel.Text = "Best score: " + bestScore;

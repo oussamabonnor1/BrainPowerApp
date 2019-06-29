@@ -20,7 +20,7 @@ namespace BrainPowerApp
         {
             InitializeComponent();
             iconIndex = 0;
-            playerId = 10;
+            playerId = 4;
             avatar.Source = iconPaths[iconIndex];
             client = new ApiClient();
         }
@@ -35,6 +35,7 @@ namespace BrainPowerApp
                 string result = await client.PostRequest(MainPage.url + "/api/leaderboard/", player);
                 player = JsonConvert.DeserializeObject<Player>(result);
                 playerId = player.id;
+                Title = player.name;
             }
 
              await Navigation.PushAsync(new NavigationPage(new MainPage()));
