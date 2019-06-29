@@ -6,6 +6,7 @@
 A visual memory training game, a mobile game made with Xamarin for both Android and IOS .
 
 ## Demo Gifs:
+### Login, Playing, Leaderboard
 <img src="Screenshots/loginGif.gif" width = "250"/> <img src="Screenshots/playGif.gif" width = "250"/>  <img src="Screenshots/leaderboardGif.gif" width="250"/>
 
 ## Game logic:
