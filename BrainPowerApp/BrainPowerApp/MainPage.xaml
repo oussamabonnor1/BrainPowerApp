@@ -11,7 +11,7 @@
         <ToolbarItem
             x:Name="btn"
             Clicked="OpenLeaderboard"
-            Icon="profile.png" />
+            Icon="liste.png" />
     </ContentPage.ToolbarItems>
 
     <StackLayout
