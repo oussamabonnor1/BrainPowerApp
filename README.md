@@ -20,10 +20,11 @@ You have to remember the boxes' positions selected by the app randomly, replay t
 
 
 ## TODO:
-- [ ] Add login form to authenticate user.
+- [x] Add login form to authenticate user.
 - [x] Make the Grid layout fit any screen size.
 - [x] Adding leaderboard using my own API.
 - [x] Adding more UI elements and SFX.
+- [ ] Adding Sqlite database to store game score in case of no internet.
 
 ## Contributing
 Feel free to `fork` this project and add whatever you like (Helping with the TODOs would be amazing tho). If you have any suggestions or any comments please feel free to contact me or to open an issue.
