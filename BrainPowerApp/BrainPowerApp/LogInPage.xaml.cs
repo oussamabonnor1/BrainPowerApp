@@ -11,7 +11,7 @@ namespace BrainPowerApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LogInPage : ContentPage
     {
-        public string[] iconPaths = { "profile.png", "blueplayer.png", "redplayer.png" };
+        public static string[] iconPaths = { "profile.png", "blueplayer.png", "redplayer.png" };
         int iconIndex;
         ApiClient client;
         public static int playerId;
@@ -20,7 +20,7 @@ namespace BrainPowerApp
         {
             InitializeComponent();
             iconIndex = 0;
-            playerId = 4;
+            playerId = 10;
             avatar.Source = iconPaths[iconIndex];
             client = new ApiClient();
         }
@@ -31,7 +31,7 @@ namespace BrainPowerApp
             
             if(!string.IsNullOrWhiteSpace(input))
             {
-                Player player = new Player { name = input, recordDate = "today", score = 0 };
+                Player player = new Player { name = input, recordDate = "today", score = 0, avatarId = iconIndex };
                 string result = await client.PostRequest(MainPage.url + "/api/leaderboard/", player);
                 player = JsonConvert.DeserializeObject<Player>(result);
                 playerId = player.id;

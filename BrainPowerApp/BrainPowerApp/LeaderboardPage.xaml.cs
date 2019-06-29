@@ -43,7 +43,7 @@ namespace BrainPowerApp
                     name = player.name,
                     score = player.score,
                     rank = player.id + "",
-                    image = iconNames[random]
+                    image = iconNames[player.avatarId]
                 });
             }
         }

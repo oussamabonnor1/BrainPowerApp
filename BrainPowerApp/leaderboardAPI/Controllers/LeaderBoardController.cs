@@ -18,9 +18,9 @@ namespace leaderboardAPI.Controllers
             context = c;
             if (context.players.Count() == 0)
             {
-                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019" });
-                context.players.Add(new Player { name = "name2", score = 10, recordDate = "13/06/2019" });
-                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019" });
+                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019", avatarId = 0 });
+                context.players.Add(new Player { name = "name2", score = 10, recordDate = "13/06/2019", avatarId = 1 });
+                context.players.Add(new Player { name = "name", score = 10, recordDate = "13/06/2019", avatarId = 2 });
             }
             context.SaveChanges();
         }
