@@ -5,12 +5,8 @@
 
 A visual memory training game, a mobile game made with Xamarin for both Android and IOS .
 
-## Screenshot:
-<img src="Screenshots/Sc.jpg" width = "250"/> <img src="Screenshots/Sc 2.jpg" width = "250"/>                                              
-<img src="Screenshots/Sc 3.jpg" width = "250"/> <img src="Screenshots/Sc 4.jpg" width = "250"/> 
-
-### Demo:
-<img src="Screenshots/gif.gif" width="300"/>
+## Demo Gifs:
+<img src="Screenshots/loginGif.gif" width = "250"/> <img src="Screenshots/playGif.gif" width = "250"/>  <img src="Screenshots/leaderboardGif.gif" width="250"/>
 
 ## Game logic:
 You have to remember the boxes' positions selected by the app randomly, replay the sequence and try to get the best score possible.
